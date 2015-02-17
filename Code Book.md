@@ -4,7 +4,7 @@
 
 This codebook is for the Course Project from __Getting and Cleaning Data__ from Coursera.
 
-The __Goal__ of the Course Project was to *Prepare a Tidy Data Set for later anaylsis.*
+The __Goal__ of the Course Project was to *Prepare a Tidy Data Set for later anaylsis.*  From what?
 
 It was accomplished by doing the following:
 

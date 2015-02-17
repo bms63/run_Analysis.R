@@ -3,17 +3,17 @@
 ####################################################################
 
 # Checks for the directory the files will downloaded into
-if(!file.exists("Course Project")){
+if(!file.exists("Temp_Project")){
   message("Creating Course Project File")
-  dir.create("Course_Project")
+  dir.create("Temp_Project")
 }
 
 # Checks to see if the Dataset has been downloaded and unzipped
-if(!file.exists("UCI_HAR_Dataset")){
+if(!file.exists("Temp Project/UCI HAR Dataset")){
   file_URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-  zipfile <- "Course_Project/UCI_HAR_Dataset.zip"
+  zipfile <- "Temp Project/UCI HAR Dataset.zip"
   download.file(file_URL, destfile=zipfile)
-  unzip(zipfile, exdir="Course_Project")
+  unzip(zipfile, exdir="Temp Project")
 }
 
 # Checks to see if data.table and dplyr is loaded and if not loads
@@ -32,28 +32,27 @@ if(!require(dplyr)){
 #Act 1: Merges the training and the test files to create one data set.
 ####################################################################
 #Reads into R the labels and features files
-setwd("C:/Users/Owner/Desktop/G&CData/UCI HAR Dataset")
-labels <- read.table("activity_labels.txt")
+labels <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/activity_labels.txt")
 #features_Info <- read.table("features_info.txt")
-features <- read.table("features.txt")
+features <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/features.txt")
 
 #sets the directory for train files
-setwd("C:/Users/Owner/Desktop/G&CData/UCI HAR Dataset")
-setwd(paste(getwd(),"/train",sep=""))
+#setwd("Temp_Project/UCI HAR Dataset")
+#setwd(paste(getwd(),"/train",sep=""))
 
 #reads Train text files into tables
-subject_Train <- read.table("subject_train.txt")
-x_Train <- read.table("X_train.txt")
-y_Train <- read.table("y_train.txt")
+subject_Train <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/train/subject_train.txt")
+x_Train <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/train/X_train.txt")
+y_Train <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/train/y_train.txt")
 
 #sets directory for test files
-setwd("C:/Users/Owner/Desktop/G&CData/UCI HAR Dataset")
-setwd(paste(getwd(),"/test",sep=""))
+#setwd("Temp_Project/UCI HAR Dataset")
+#setwd(paste(getwd(),"/test",sep=""))
 
 #reads Test text files into tables
-subject_Test <- read.table("subject_test.txt")
-x_Test <- read.table("X_test.txt")
-y_Test <- read.table("y_test.txt")
+subject_Test <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/test/subject_test.txt")
+x_Test <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/test/X_test.txt")
+y_Test <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/test/y_test.txt")
 
 ####################################################################
 #Act 1.5 Merges the data files together
