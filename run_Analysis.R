@@ -15,7 +15,7 @@ if(!file.exists("Temp Project/UCI HAR Dataset")){
   download.file(file_URL, destfile=zipfile)
   unzip(zipfile, exdir="Temp Project")
 }
-
+#I love Megan de Brito
 # Checks to see if data.table and dplyr is loaded and if not loads
 # and/or installs 
 if(!require(data.table)){
@@ -75,7 +75,7 @@ the_Ring <- rbind(train_Data, test_Data)
 names(features) <- c('Feature_ID', 'Feature_Name')
 index_Features <- grep("-mean\\(\\)|-std\\(\\)", features$Feature_Name)
 #index_Features_Names <- grep("mean\\(\\)|std\\(\\)", features$Feature_Name, value = TRUE)
-mean_Std_Dataset <- select(the_Ring, index_features)
+mean_Std_Dataset <- select(the_Ring, index_Features)
 
 ####################################################################
 # Act 3: Uses descriptive activity names to name the activities in 
