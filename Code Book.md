@@ -12,8 +12,8 @@ to match the path names.
 It was accomplished by doing the following:
 
 ##1.  Merges the training and the test sets to create one data set.
--.  Read the following files into R:
--.  activity_labels.txt, features.txt, subject_train.txt, X_train.txt, y_train.txt, subject_test.txt, X_test.txt, y_test.txt
+- Read the following files into R:
+- activity_labels.txt, features.txt, subject_train.txt, X_train.txt, y_train.txt, subject_test.txt, X_test.txt, y_test.txt
 ··2.  Merge the X files, Y files and Subject files togther by using rbind	
 
 2.  Extracts only the measurements on the mean and standard deviation for each measurement. 
