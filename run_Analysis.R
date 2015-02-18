@@ -72,9 +72,9 @@ subject_Data <- rbind(subject_Train, subject_Test)
 ####################################################################
 
 #Assigns readable names to columns 
-names(features) <- c('Subject', 'Activity')
+names(features) <- c('Subject', 'Measurement')
 #Extracts any matching mean or std in features table
-index_Features <- grep("-mean\\(\\)|-std\\(\\)", features$Feature_Name)
+index_Features <- grep("-mean\\(\\)|-std\\(\\)", features$Measurement)
 #Pulls out relevant Data based on indices of features
 mean_Std_Dataset <- x_Data[ , index_Features]
 View(mean_Std_Dataset)
@@ -84,8 +84,10 @@ View(mean_Std_Dataset)
 # the data set and Appropriately labels the data set with descriptive 
 # variable names. 
 ####################################################################
+# Gives names to the labels file
 names(labels) <- c('Subject', 'Activity')
-y-Data[, 1] = labels[y_Data[, 1], 2]
+# Changes the integers of the y_Data to appropriate names
+y_Data[, 1] = labels[y_Data[, 1], 2]
 
 #Assigns Names to columns of y and subject Data
 names(y_Data) <- "Activity"
@@ -93,19 +95,19 @@ names(subject_Data) <- "Subject"
 
 # Combines data table by columns
 complete_Data_Set <- cbind(subject_Data, y_Data, x_Data)
-#View(complete_Data_Set)
 
+#View(complete_Data_Set)
 # Changes the variables V1, V2, V3...to their corresposing name provided in
 # features file
-colnames(complete_Data_Set) <- c("Subject","Activity",as.vector(features[,2]))
+# colnames(complete_Data_Set) <- c("Subject","Activity",as.vector(features[,2]))
 
 #Changes the integer to the word associated with the integer
-complete_Data_Set$Activity[complete_Data_Set$Activity == 1] = "WALKING"
-complete_Data_Set$Activity[complete_Data_Set$Activity == 2] = "WALKING_UPSTAIRS"
-complete_Data_Set$Activity[complete_Data_Set$Activity == 3] = "WALKING_DOWNSTAIRS"
-complete_Data_Set$Activity[complete_Data_Set$Activity == 4] = "SITTING"
-complete_Data_Set$Activity[complete_Data_Set$Activity == 5] = "STANDING"
-complete_Data_Set$Activity[complete_Data_Set$Activity == 6] = "LAYING"
+#complete_Data_Set$Activity[complete_Data_Set$Activity == 1] = "WALKING"
+#complete_Data_Set$Activity[complete_Data_Set$Activity == 2] = "WALKING_UPSTAIRS"
+#complete_Data_Set$Activity[complete_Data_Set$Activity == 3] = "WALKING_DOWNSTAIRS"
+#complete_Data_Set$Activity[complete_Data_Set$Activity == 4] = "SITTING"
+#complete_Data_Set$Activity[complete_Data_Set$Activity == 5] = "STANDING"
+#complete_Data_Set$Activity[complete_Data_Set$Activity == 6] = "LAYING"
 
 View(complete_Data_Set)
 ####################################################################
