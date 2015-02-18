@@ -37,23 +37,24 @@ if(!require(dplyr)){
 #STEP 1: Merges the training and the test files to create one data set.
 ####################################################################
 #Reads into R the labels and features files
-labels <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/activity_labels.txt")
+labels <- read.table("Temp_Project/UCI HAR Dataset/activity_labels.txt")
 #features_Info <- read.table("features_info.txt")
-features <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/features.txt")
+features <- read.table("Temp_Project/UCI HAR Dataset/features.txt")
 
 #reads Train text files into tables
-subject_Train <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/train/subject_train.txt", header = FALSE)
-x_Train <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/train/X_train.txt", header = FALSE)
-y_Train <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/train/y_train.txt", header = FALSE)
+subject_Train <- read.table("Temp_Project/UCI HAR Dataset/train/subject_train.txt", header = FALSE)
+x_Train <- read.table("Temp_Project/UCI HAR Dataset/train/X_train.txt", header = FALSE)
+y_Train <- read.table("Temp_Project/UCI HAR Dataset/train/y_train.txt", header = FALSE)
 
 #reads Test text files into tables
-subject_Test <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/test/subject_test.txt", header = FALSE)
-x_Test <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/test/X_test.txt", header = FALSE)
-y_Test <- read.table("C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/test/y_test.txt", header = FALSE)
+subject_Test <- read.table("Temp_Project/UCI HAR Dataset/test/subject_test.txt", header = FALSE)
+x_Test <- read.table("Temp_Project/UCI HAR Dataset/test/X_test.txt", header = FALSE)
+y_Test <- read.table("Temp_Project/UCI HAR Dataset/test/y_test.txt", header = FALSE)
 
 ####################################################################
 #STEP 1.5 Merges the data files together
 ####################################################################
+
 # Creates a merged data table of the X files.
 x_Data <- rbind(x_Train, x_Test)
 
@@ -84,6 +85,7 @@ View(mean_Std_Dataset)
 # the data set and Appropriately labels the data set with descriptive 
 # variable names. 
 ####################################################################
+
 # Gives names to the labels file
 names(labels) <- c('Subject', 'Activity')
 # Changes the integers of the y_Data to appropriate names
@@ -110,6 +112,7 @@ complete_Data_Set <- cbind(subject_Data, y_Data, x_Data)
 #complete_Data_Set$Activity[complete_Data_Set$Activity == 6] = "LAYING"
 
 View(complete_Data_Set)
+
 ####################################################################
 # STEP 4: From the data set created in STEP 3 create a second, independent 
 # tidy data set with the average of each variable for each activity and 
@@ -128,7 +131,7 @@ names(avg_Tidy_Data_Set)[2] <- "Activity"
 View(avg_Tidy_Data_Set)
 
 # Writes tidy data set as a file into directory
-write.csv(avg_Tidy_Data_Set, "C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/UCI HAR Tidy Data Set.csv", row.names = FALSE)
+write.csv(avg_Tidy_Data_Set, "Temp_Project/UCI HAR Dataset/UCI HAR Tidy Data Set.csv", row.names = FALSE)
 
-write.table(avg_Tidy_Data_Set, "C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/UCI HAR Tidy Data Set.txt", row.names = FALSE)
+write.table(avg_Tidy_Data_Set, "Temp_Project/UCI HAR Dataset/UCI HAR Tidy Data Set.txt", row.names = FALSE)
 
