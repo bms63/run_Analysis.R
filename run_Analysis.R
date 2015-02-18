@@ -128,5 +128,5 @@ View(avg_Tidy_Data_Set)
 # Writes tidy data set as a file into directory
 write.csv(avg_Tidy_Data_Set, "C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/UCI HAR Tidy Data Set.csv", row.names = FALSE)
 
-
+write.table(avg_Tidy_Data_Set, "C:/Users/Owner/Documents/Temp_Project/UCI HAR Dataset/UCI HAR Tidy Data Set.txt", row.names = FALSE)
 
