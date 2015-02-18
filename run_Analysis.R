@@ -72,7 +72,7 @@ subject_Data <- rbind(subject_Train, subject_Test)
 ####################################################################
 
 #Assigns readable names to columns 
-names(features) <- c('Activity ID', 'Activity Name')
+names(features) <- c('Subject', 'Activity')
 #Extracts any matching mean or std in features table
 index_Features <- grep("-mean\\(\\)|-std\\(\\)", features$Feature_Name)
 #Pulls out relevant Data based on indices of features
@@ -84,7 +84,7 @@ View(mean_Std_Dataset)
 # the data set and Appropriately labels the data set with descriptive 
 # variable names. 
 ####################################################################
-names(labels) <- c('Activity ID', 'Activity Name')
+names(labels) <- c('Subject', 'Activity')
 y-Data[, 1] = labels[y_Data[, 1], 2]
 
 #Assigns Names to columns of y and subject Data
