@@ -72,7 +72,7 @@ subject_Data <- rbind(subject_Train, subject_Test)
 ####################################################################
 
 #Assigns readable names to columns 
-names(features) <- c('Feature_ID', 'Feature_Name')
+names(features) <- c('Activity ID', 'Activity Name')
 #Extracts any matching mean or std in features table
 index_Features <- grep("-mean\\(\\)|-std\\(\\)", features$Feature_Name)
 #Pulls out relevant Data based on indices of features
@@ -122,6 +122,7 @@ View(avg_Tidy_Data_Set)
 # Assigns Variable names to the first two columns
 names(avg_Tidy_Data_Set)[1] <- "Subject"
 names(avg_Tidy_Data_Set)[2] <- "Activity"
+
 View(avg_Tidy_Data_Set)
 
 # Writes tidy data set as a file into directory
